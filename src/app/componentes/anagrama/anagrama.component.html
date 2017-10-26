@@ -1,3 +1,7 @@
-<p>
-  anagrama works!
-</p>
+<h2 [hidden]="ocultarPalabra" *ngIf="anagrama.palabraDesorganizada != null">{{anagrama.palabraDesorganizada}}</h2>
+<br><br>
+<button *ngIf="anagrama.palabraDesorganizada == null" (click) = "generar()">Generar</button>
+<br><br>
+<input type="text" name="palabraIngresada" [(ngModel)] = "anagrama.palabraIngresada" id="palabraIngresada" placeholder="Ingrese la palabra">
+<br><br>
+<button *ngIf="anagrama.palabraDesorganizada != null" (click) = "verificar()">Verificar</button>

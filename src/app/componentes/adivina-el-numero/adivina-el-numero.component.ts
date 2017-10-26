@@ -28,15 +28,17 @@ export class AdivinaElNumeroComponent implements OnInit {
   {
     this.contador++;
     this.ocultarVerificar=true;
+    console.log("OBJETO JUEGO: "+JSON.stringify(this.nuevoJuego));
     console.info("numero Secreto:",this.nuevoJuego.gano);  
     if (this.nuevoJuego.verificar()){
       
-      this.enviarJuego.emit(this.nuevoJuego);
+      // this.enviarJuego.emit(this.nuevoJuego);
+      this.enviarJuego.emit(new JuegoAdivina(this.nuevoJuego.nombre,this.nuevoJuego.gano,this.nuevoJuego.jugador));      
       this.MostarMensaje("Sos un Genio!!!",true);
       this.nuevoJuego.numeroSecreto=0;
 
     }else{
-
+      this.enviarJuego.emit(new JuegoAdivina(this.nuevoJuego.nombre,this.nuevoJuego.gano,this.nuevoJuego.jugador));
       let mensaje:string;
       switch (this.contador) {
         case 1:
@@ -85,8 +87,15 @@ export class AdivinaElNumeroComponent implements OnInit {
      }, 3000);
     console.info("objeto",x);
   
-   }  
+   } 
+   
+   
   ngOnInit() {
+    let usuarios : Array<any> = new Array<any>();
+    usuarios.push(["administrador@gmail.com","1234"]);
+    console.log(usuarios[0][0]);
+    console.log(usuarios[0][1]);
+    localStorage.setItem("Usuarios",JSON.stringify(usuarios));
   }
 
 }
