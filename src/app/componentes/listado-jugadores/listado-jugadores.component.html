@@ -1,0 +1,21 @@
+<table border="1">
+    <thead>
+        <th>Usuario</th>
+        <th>Email</th>
+        <th>Sexo</th>
+        <th>Puntaje</th>
+        <th>Gano</th>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let jugador of jugadores">
+            <tr>
+           <td>{{jugador.usuario}}</td>
+           <td>{{jugador.email}}</td>
+           <td>{{jugador.sexo | sexo}}</td>
+           <!-- <td *ngIf="jugador.puntaje | puntos == mal" style="color: red">{{jugador.puntaje}}</td> -->
+           <td>{{jugador.gano | gano}}</td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+<button (click) = "mostrarJugadores()">Mostrar Jugadores</button>

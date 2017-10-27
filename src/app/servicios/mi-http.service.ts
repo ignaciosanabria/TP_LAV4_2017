@@ -10,13 +10,14 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class MiHttpService {
   
+  apiRuta : string = "http://localhost:8080/TP/TP_LAV4_2017/jugadoresArchivo/apirestjugadores/";
   constructor(public http:Http) { }
   
-  public httpGetPromise(url: string, objeto:any){
+  public httpGetPromise(url: string){
 
 
     return this.http
-    .get(url)
+    .get(this.apiRuta+url)
     .toPromise()
     .then(this.extraerDatos)
     .catch(this.handleError);
@@ -31,5 +32,6 @@ export class MiHttpService {
 
       return error;
   }
+
 
 }

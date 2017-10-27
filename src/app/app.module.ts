@@ -1,3 +1,6 @@
+import { JugadoresService } from './servicios/jugadores.service';
+import { ArchivoJugadoresServiceService } from './servicios/archivo-jugadores-service.service';
+import { MiHttpService } from './servicios/mi-http.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
@@ -41,6 +44,12 @@ import { MenuCardComponent } from './componentes/menu-card/menu-card.component';
 import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
 import { AnagramaComponent } from './componentes/anagrama/anagrama.component';
+import { ListadoJugadoresComponent } from './componentes/listado-jugadores/listado-jugadores.component';
+import { HttpModule } from '@angular/http';
+import { SexoPipe } from './pipes/sexo.pipe';
+import { GanoComponent } from './componentes/gano/gano.component';
+import { GanoPipe } from './pipes/gano.pipe';
+import { PuntosPipe } from './pipes/puntos.pipe';
 
 @NgModule({
   declarations: [
@@ -61,18 +70,23 @@ import { AnagramaComponent } from './componentes/anagrama/anagrama.component';
     MenuCardComponent,
     CabeceraComponent,
     QuienSoyComponent,
-    AnagramaComponent
+    AnagramaComponent,
+    ListadoJugadoresComponent,
+    SexoPipe,
+    GanoComponent,
+    GanoPipe,
+    PuntosPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RuteandoModule
-
+    RuteandoModule,
+    HttpModule
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
   ],
-  providers: [ JuegoServiceService],
+  providers: [ JuegoServiceService, MiHttpService, ArchivoJugadoresServiceService, JugadoresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
