@@ -28,7 +28,6 @@ export class AdivinaElNumeroComponent implements OnInit {
   {
     this.contador++;
     this.ocultarVerificar=true;
-    console.log("OBJETO JUEGO: "+JSON.stringify(this.nuevoJuego));
     console.info("numero Secreto:",this.nuevoJuego.gano);  
     if (this.nuevoJuego.verificar()){
       
@@ -38,7 +37,6 @@ export class AdivinaElNumeroComponent implements OnInit {
       this.nuevoJuego.numeroSecreto=0;
 
     }else{
-      this.enviarJuego.emit(new JuegoAdivina(this.nuevoJuego.nombre,this.nuevoJuego.gano,this.nuevoJuego.jugador));
       let mensaje:string;
       switch (this.contador) {
         case 1:
@@ -48,7 +46,11 @@ export class AdivinaElNumeroComponent implements OnInit {
           mensaje="No,Te estaras Acercando???";
           break;
           case 3:
-          mensaje="No es, Yo crei que la tercera era la vencida.";
+          //mensaje="No es, Yo crei que la tercera era la vencida.";
+          mensaje = "Ya agotaste las chances que tenias para ganar!";
+          this.enviarJuego.emit(new JuegoAdivina(this.nuevoJuego.nombre,this.nuevoJuego.gano,this.nuevoJuego.jugador));
+          this.nuevoJuego.numeroSecreto = 0;
+          this.nuevoJuego.numeroIngresado = 0;
           break;
           case 4:
           mensaje="No era el  "+this.nuevoJuego.numeroIngresado;
@@ -91,11 +93,6 @@ export class AdivinaElNumeroComponent implements OnInit {
    
    
   ngOnInit() {
-    let usuarios : Array<any> = new Array<any>();
-    usuarios.push(["administrador@gmail.com","1234"]);
-    console.log(usuarios[0][0]);
-    console.log(usuarios[0][1]);
-    localStorage.setItem("Usuarios",JSON.stringify(usuarios));
   }
 
 }

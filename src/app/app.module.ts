@@ -3,7 +3,7 @@ import { ArchivoJugadoresServiceService } from './servicios/archivo-jugadores-se
 import { MiHttpService } from './servicios/mi-http.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AdivinaElNumeroComponent } from './componentes/adivina-el-numero/adivina-el-numero.component';
 import { ListadoDeResultadosComponent } from './componentes/listado-de-resultados/listado-de-resultados.component';
@@ -81,6 +81,7 @@ import { PuntosPipe } from './pipes/puntos.pipe';
     BrowserModule,
     FormsModule,
     RuteandoModule,
+    ReactiveFormsModule,
     HttpModule
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo

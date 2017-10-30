@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   progresoMensaje="esperando..."; 
   logeando=true;
   ProgresoDeAncho:string;
+  arrayUsuarios : Array<any> = new Array<any>();
 
   clase="progress-bar progress-bar-info progress-bar-striped ";
 
@@ -25,16 +26,33 @@ export class LoginComponent implements OnInit {
     private router: Router) {
       this.progreso=0;
       this.ProgresoDeAncho="0%";
-
+      this.arrayUsuarios.push({mail:"administrador@outlook.com", clave:"1234"});
+      this.arrayUsuarios.push({mail:"leandro_12@hotmail.com",clave:"boca1234"});
+      let usuarioRegistrado = JSON.parse(localStorage.getItem("usuarioRegistrado"));
+      if(usuarioRegistrado != null)
+        {
+          this.arrayUsuarios.push(usuarioRegistrado);
+        }
+        localStorage.setItem("Usuarios",JSON.stringify(this.arrayUsuarios));
   }
 
   ngOnInit() {
   }
 
   Entrar() {
-    if (this.usuario === 'admin' && this.clave === 'admin') {
-      this.router.navigate(['/Principal']);
-    }
+    // if (this.usuario === 'admin' && this.clave === 'admin') {
+    //   this.router.navigate(['/Principal']);
+    // }
+    this.arrayUsuarios = JSON.parse(localStorage.getItem("Usuarios"));
+    console.log(this.arrayUsuarios);
+    for(let i = 0; i < this.arrayUsuarios.length; i++)
+      {
+        if(this.arrayUsuarios[i]["mail"] == this.usuario && this.arrayUsuarios[i]["clave"] == this.clave)
+          {
+            localStorage.setItem("usuarioEnLinea",JSON.stringify(this.arrayUsuarios[i]));
+            this.router.navigate(['/Principal']);
+          }
+      }
   }
   MoverBarraDeProgreso() {
     

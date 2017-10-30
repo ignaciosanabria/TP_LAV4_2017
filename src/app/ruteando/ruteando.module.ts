@@ -22,8 +22,8 @@ import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 import { ListadoJugadoresComponent } from '../componentes/listado-jugadores/listado-jugadores.component';
 // declaro donde quiero que se dirija
 const MiRuteo = [
-{path: '' , component: PrincipalComponent},
-{path: 'Login' , component: LoginComponent},
+//{path: '' , component: PrincipalComponent},
+{path: '' , component: LoginComponent},
 {path: 'QuienSoy' , component: QuienSoyComponent},
 {path: 'Registro' , component: RegistroComponent},
 {path: 'Principal' , component: PrincipalComponent},
