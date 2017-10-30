@@ -3,56 +3,56 @@ export class JuegoAnagrama extends Juego
 {
   arrayAnagrama : Array<any> = [
    {
-    "palabra": "ADERABN",
+    "palabra": ["ADERABN","BERANDA","AABNDER"],
     "correcta" : "BANDERA"
    },
    {
-    "palabra": "LANOBI",
+    "palabra": ["LANOBI","AIBONL","BALONI"],
     "correcta" : "ALBINO"
    },
 
    {
-    "palabra": "RESAP",
+    "palabra": ["RESAP","PRSAE","EPRSA"],
     "correcta" : "PERAS"
    },
 
    {
-    "palabra": "NTRE",
+    "palabra": ["NTRE","ETRN","TERN"],
     "correcta" : "TREN"
    },
    {
-    "palabra": "BUFÓLT",
+    "palabra": ["BUFÓLT","LÓTFBU","UBÓFLT"],
     "correcta" : "FUTBÓL"
    },
    {
-    "palabra": "TENMA",
+    "palabra": ["TENMA","ATMEN","ENTAM"],
     "correcta" : "MENTA"
    },
    {
-    "palabra": "APLEOT",
+    "palabra": ["APLEOT","PALTOE","EPALTO"],
     "correcta" : "PELOTA"
    },
    {
-    "palabra": "ZECVREA",
+    "palabra": ["ZECVREA","AVCREEZ","AECERZV"],
     "correcta" : "CERVEZA"
    },
    {
-    "palabra": "SÚCIMA",
+    "palabra": ["SÚCIMA","MSCAÚI","ÚMISCA"],
     "correcta" : "MÚSICA"
    },
 
    {
-    "palabra": "UPERTA",
+    "palabra": ["UPERTA","ATUREP","PREUAT"],
     "correcta" : "PUERTA"
    },
 
    {
-    "palabra": "MJANO",
+    "palabra": ["MJANÓ","AJÓMN","ÓJMAN"],
     "correcta" : "JAMON"
    },
 
    {
-    "palabra": "SEUQO",
+    "palabra": ["SEUQO","SOQEU","OQSEU"],
     "correcta" : "QUESO"
    }];
   palabraDesorganizada : string;
@@ -65,7 +65,8 @@ export class JuegoAnagrama extends Juego
 
   public verificar()
   {
-   if(this.palabraIngresada == this.palabraCorrecta)
+    this.gano = false;
+    if(this.palabraIngresada == this.palabraCorrecta)
     {
         this.gano = true;
     }
@@ -78,8 +79,10 @@ export class JuegoAnagrama extends Juego
 
   public generarPalabra()
   {
-    let index = Math.floor((Math.random() * 12) + 1);
-    this.palabraDesorganizada = this.arrayAnagrama[index]["palabra"];
+    let index = Math.floor((Math.random() * 11) + 0);
+    let subIndex = Math.floor((Math.random() * 2) + 0);
+    console.log(this.arrayAnagrama[index]["palabra"][subIndex]);
+    this.palabraDesorganizada = this.arrayAnagrama[index]["palabra"][subIndex];
     this.palabraCorrecta = this.arrayAnagrama[index]["correcta"];
   }
 }

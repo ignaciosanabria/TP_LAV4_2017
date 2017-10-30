@@ -1,35 +1,6 @@
-form
-{
-    background-color: cyan;
-    text-align: center;
-    border: 10px solid #f1f1f1;
-    padding: 10px;
+.fondo{
+    background-color: aqua;
 }
-
-input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-button {
-    /*background-color: #4CAF50;*/
-    color: white;
-    background-color: blue;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
 #snackbar {
     visibility: hidden;
     min-width: 250px;
@@ -56,4 +27,3 @@ button:hover {
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
-

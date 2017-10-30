@@ -50,6 +50,7 @@ import { SexoPipe } from './pipes/sexo.pipe';
 import { GanoComponent } from './componentes/gano/gano.component';
 import { GanoPipe } from './pipes/gano.pipe';
 import { PuntosPipe } from './pipes/puntos.pipe';
+import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { PuntosPipe } from './pipes/puntos.pipe';
     SexoPipe,
     GanoComponent,
     GanoPipe,
-    PuntosPipe
+    PuntosPipe,
+    PiedraPapelTijeraComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,13 @@
+<form>
+<h1>Anagrama</h1>
 <h2 [hidden]="ocultarPalabra" *ngIf="anagrama.palabraDesorganizada != null">{{anagrama.palabraDesorganizada}}</h2>
 <br><br>
 <button *ngIf="anagrama.palabraDesorganizada == null" (click) = "generar()">Generar</button>
 <br><br>
-<input type="text" name="palabraIngresada" [(ngModel)] = "anagrama.palabraIngresada" id="palabraIngresada" placeholder="Ingrese la palabra">
+<input *ngIf="anagrama.palabraDesorganizada != null" type="text" name="palabraIngresada" [(ngModel)] = "anagrama.palabraIngresada" id="palabraIngresada" placeholder="Ingrese la palabra">
 <br><br>
-<button *ngIf="anagrama.palabraDesorganizada != null" (click) = "verificar()">Verificar</button>
+<h2><p *ngIf="anagrama.palabraDesorganizada != null" ><i class="fa fa-spinner fa-spin"></i>Esperando que ingreses una palabra</p></h2>
+<br><br>
+<button [hidden]="ocultarVerificar"  *ngIf="anagrama.palabraDesorganizada != null" (click) = "verificar()">Verificar</button>
+</form>
+<div id="snackbar">{{Mensajes}}</div>

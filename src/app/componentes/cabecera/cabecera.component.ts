@@ -20,8 +20,12 @@ export class CabeceraComponent implements OnInit {
 
   public cerrarSesion()
   {
+    let confirmar = confirm("Desea cerrar su sesion?");
+    if(confirmar == true)
+      {
     localStorage.removeItem("usuarioEnLinea");
     this.router.navigate(['/']);
+      }
   }
 
   ngOnInit() {

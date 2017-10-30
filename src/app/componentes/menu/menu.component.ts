@@ -28,7 +28,23 @@ export class MenuComponent implements OnInit {
       case 'AgilidadaMasListado':
           this.router.navigate(['/Juegos/AgilidadaMasListado']);
         break;
+      case 'Anagrama':
+      this.router.navigate(['/Juegos/Anagrama']);
+      break;
+      case 'PPT':
+      this.router.navigate(['/Juegos/PiedraPapelTijera']);
+      break;
     }
+  }
+
+  public cerrarSesion()
+  {
+    let confirmar = confirm("Desea cerrar su sesion?");
+    if(confirmar == true)
+      {
+    localStorage.removeItem("usuarioEnLinea");
+    this.router.navigate(['/']);
+      }
   }
 
 }
