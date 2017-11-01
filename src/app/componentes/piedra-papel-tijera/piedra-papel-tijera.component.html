@@ -1,19 +1,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="fondo">
-<h2 *ngIf="nuevoJuego.imagenMaquina != null">La maquina te muestra</h2>
-<img *ngIf="nuevoJuego.imagenMaquina != null" src="../../../assets/imagenes/PPT/{{nuevoJuego.imagenMaquina}}" width="300px" height="300px">
+<form>
+<h2 [hidden]="ocultarOpcionMaquina">La maquina había elegido</h2>
+<img [hidden]="ocultarOpcionMaquina" src="../../../assets/imagenes/PPT/{{nuevoJuego.imagenMaquina}}" width="300px" height="300px">
 <br><br>
 <div *ngIf="nuevoJuego.imagenesUsuario != null">
 <h2>Vos que opcion elegis?</h2>
-<table>
-   <ng-container *ngFor="let imagenes of nuevoJuego.imagenesUsuario">
-      <tr><img src="../../../assets/imagenes/PPT/{{imagenes.path}}" width="250px" height="250px"></tr>
-      <input type="radio" name="opcionUsuario" value="{{imagenes.valor}}" [(ngModel)]="nuevoJuego.opcionUsuario">{{imagenes.valor}}
-   </ng-container>
-</table>
+      <img src="../../../assets/imagenes/PPT/{{nuevoJuego.imagenesUsuario[0]['path']}}" width="250px" height="250px">
+      <img src="../../../assets/imagenes/PPT/{{nuevoJuego.imagenesUsuario[1]['path']}}" width="250px" height="250px">
+      <img src="../../../assets/imagenes/PPT/{{nuevoJuego.imagenesUsuario[2]['path']}}" width="250px" height="250px">
+      <br>
+      <input type="radio" name="opcionUsuario" value="{{nuevoJuego.imagenesUsuario[0]['valor']}}" [(ngModel)]="nuevoJuego.opcionUsuario">{{nuevoJuego.imagenesUsuario[0]['valor']}}
+      <input type="radio" name="opcionUsuario" value="{{nuevoJuego.imagenesUsuario[1]['valor']}}" [(ngModel)]="nuevoJuego.opcionUsuario">{{nuevoJuego.imagenesUsuario[1]['valor']}}
+       <input type="radio" name="opcionUsuario" value="{{nuevoJuego.imagenesUsuario[2]['valor']}}" [(ngModel)]="nuevoJuego.opcionUsuario">{{nuevoJuego.imagenesUsuario[2]['valor']}}
+        <br><br>
 </div>
-<br><br>
-<button [hidden]="ocultarGenerar" (click)="generar()">Comenzar Nuevo Juego</button>
-<button [hidden]="mostrarVerificar" (click)="verificar()">Verificar</button>
+<button *ngIf="nuevoJuego.imagenMaquina == null" (click)="generar()">Comenzar Nuevo Juego</button>
+<button [hidden]="ocultarVerificar" *ngIf="nuevoJuego.imagenMaquina != null"(click)="verificar()">Verificar</button>
+</form>
 <div id="snackbar">{{Mensajes}}</div>
-</div>

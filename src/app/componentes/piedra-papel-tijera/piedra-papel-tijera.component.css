@@ -1,5 +1,22 @@
-.fondo{
-    background-color: aqua;
+form{
+    background-color: cyan;
+    text-align: center;
+    border: 10px solid #f1f1f1;
+    padding: 10px;
+}
+button {
+    /*background-color: #4CAF50;*/
+    color: white;
+    background-color: blue;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
 }
 #snackbar {
     visibility: hidden;
@@ -13,7 +30,7 @@
     position: fixed;
     z-index: 1;
     left: 50%;
-    bottom: 30px;
+    bottom: 50px;
     font-size: 17px;
 }
 #snackbar.Ganador {
@@ -27,3 +44,4 @@
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
+

@@ -10,7 +10,9 @@ export class ListadoComponent implements OnInit {
   public listadoParaCompartir: Array<any>;
    miServicioJuego:JuegoServiceService
   constructor(servicioJuego:JuegoServiceService) { 
-    this.miServicioJuego = servicioJuego;}
+    this.miServicioJuego = servicioJuego;
+    this.listadoParaCompartir = JSON.parse(localStorage.getItem("Resultados"));  
+  }
   
   ngOnInit() {
     

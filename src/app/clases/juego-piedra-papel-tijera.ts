@@ -57,6 +57,7 @@ export class JuegoPiedraPapelTijera extends Juego{
       }
 
 
+      //Le muestro al usuario las opciones que tiene para elegir, la maquina elegira una al azar
       public empezarJuego()
       {
         let index = Math.floor((Math.random() * 2) + 0);

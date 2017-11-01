@@ -29,6 +29,7 @@ const MiRuteo = [
 {path: 'Registro' , component: RegistroComponent},
 {path: 'Principal' , component: PrincipalComponent},
 {path: 'Listado' , component: ListadoComponent},
+{path: 'Listados', component : ListadosComponent},
 { path: 'Juegos' ,
 component: JuegosComponent ,
 children:

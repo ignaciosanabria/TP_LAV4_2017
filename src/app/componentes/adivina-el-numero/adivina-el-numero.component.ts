@@ -14,11 +14,12 @@ export class AdivinaElNumeroComponent implements OnInit {
   Mensajes:string;
   contador:number;
   ocultarVerificar:boolean;
- 
+  arrayResultados : Array<any> = new Array<any>();
   constructor() { 
     this.nuevoJuego = new JuegoAdivina();
     console.info("numero Secreto:",this.nuevoJuego.numeroSecreto);  
     this.ocultarVerificar=false;
+    this.arrayResultados = JSON.parse(localStorage.getItem("Resultados"));
   }
   generarnumero() {
     this.nuevoJuego.generarnumero();
@@ -70,6 +71,8 @@ export class AdivinaElNumeroComponent implements OnInit {
      
 
     }
+    this.arrayResultados.push(this.nuevoJuego);
+    localStorage.setItem("Resultados",JSON.stringify(this.arrayResultados));
     console.info("numero Secreto:",this.nuevoJuego.gano);  
   }  
 

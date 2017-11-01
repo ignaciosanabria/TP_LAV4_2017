@@ -16,16 +16,21 @@ export class AgilidadAritmeticaComponent implements OnInit {
   Tiempo: number;
   repetidor:any;
   private subscription: Subscription;
+  Mensajes:string;
+  jugador = JSON.parse(localStorage.getItem("usuarioEnLinea"));
+  arrayResultados : Array<any> = new Array<any>();
   ngOnInit() {
   }
    constructor() {
      this.ocultarVerificar=true;
-     this.Tiempo=5; 
-    this.nuevoJuego = new JuegoAgilidad();
+     this.Tiempo=10; 
+    this.nuevoJuego = new JuegoAgilidad("Agilidad Aritmetica",false,this.jugador["mail"]);
+    this.arrayResultados = JSON.parse(localStorage.getItem("Resultados"));
     console.info("Inicio agilidad");  
   }
   NuevoJuego() {
     this.ocultarVerificar=false;
+    this.nuevoJuego.generar();
    this.repetidor = setInterval(()=>{ 
       
       this.Tiempo--;
@@ -34,7 +39,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
         clearInterval(this.repetidor);
         this.verificar();
         this.ocultarVerificar=true;
-        this.Tiempo=5;
+        this.Tiempo=10;
       }
       }, 900);
 
@@ -43,9 +48,45 @@ export class AgilidadAritmeticaComponent implements OnInit {
   {
     this.ocultarVerificar=false;
     clearInterval(this.repetidor);
-   
-
-   
+    if(this.nuevoJuego.verificar())
+      {
+        this.MostarMensaje("Sos un genio papa!",true);
+      }
+      else
+        {
+          this.MostarMensaje("No llegaste papa!",false);
+        }
+      //RESETEO TODOS LOS VALORES DEL JUEGO
+      // this.nuevoJuego.numeroUno = null;
+      // this.nuevoJuego.numeroDos = null;
+      // this.nuevoJuego.operador = null;
+      // this.nuevoJuego.resultadoJugador = null;
+      // this.nuevoJuego.resultadoVerdadero = null;
+      this.ocultarVerificar = true;
+      this.Tiempo = 10;
+      this.arrayResultados.push(this.nuevoJuego);
+      localStorage.setItem("Resultados",JSON.stringify(this.arrayResultados));
+      this.enviarJuego.emit(this.nuevoJuego);
+      //Reseteo el nuevo juego despues de mostrar el mensaje de si gano o no
+      this.nuevoJuego = new JuegoAgilidad("Agilidad Aritmetica",false,this.jugador["mail"]);
   }  
+  
+  MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {
+    this.Mensajes=mensaje;    
+    var x = document.getElementById("snackbar");
+    if(ganador)
+      {
+        x.className = "show Ganador";
+      }else{
+        x.className = "show Perdedor";
+      }
+    var modelo=this;
+    setTimeout(function(){ 
+      x.className = x.className.replace("show", "");
+      modelo.ocultarVerificar= true;
+     }, 3000);
+    console.info("objeto",x);
+  
+   }
 
 }

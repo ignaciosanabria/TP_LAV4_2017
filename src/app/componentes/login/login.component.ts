@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   logeando=true;
   ProgresoDeAncho:string;
   arrayUsuarios : Array<any> = new Array<any>();
+  arrayResultados: Array<any> = new Array<any>();
 
   clase="progress-bar progress-bar-info progress-bar-striped ";
 
@@ -29,10 +30,15 @@ export class LoginComponent implements OnInit {
       this.arrayUsuarios.push({mail:"administrador@outlook.com", clave:"1234"});
       this.arrayUsuarios.push({mail:"leandro_12@hotmail.com",clave:"boca1234"});
       let usuarioRegistrado = JSON.parse(localStorage.getItem("usuarioRegistrado"));
-      if(usuarioRegistrado != null)
+      if(usuarioRegistrado != null) //Si un usuario se registra este se almacena en el LocalStorage y luego se lo agrega al arraydeUsuarios
         {
           this.arrayUsuarios.push(usuarioRegistrado);
         }
+        let resultadosPrevios = JSON.parse(localStorage.getItem("Resultados"));
+        if(resultadosPrevios == null)//Si no hay resultados previos de otros jugadores, el arrayDeResultados se reinicia
+          {
+        localStorage.setItem("Resultados",JSON.stringify(this.arrayResultados));
+          }
         localStorage.setItem("Usuarios",JSON.stringify(this.arrayUsuarios));
   }
 

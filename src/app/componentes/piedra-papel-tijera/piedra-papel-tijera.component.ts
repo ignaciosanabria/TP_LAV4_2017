@@ -7,43 +7,53 @@ import {JuegoPiedraPapelTijera} from '../../clases/juego-piedra-papel-tijera';
 })
 export class PiedraPapelTijeraComponent implements OnInit {
   nuevoJuego : JuegoPiedraPapelTijera;
-  ocultarGenerar : boolean;
-  mostrarVerificar : boolean;
-
+  ocultarVerificar : boolean;
+  ocultarOpcionMaquina : boolean;
   Mensajes:string;
+  jugador : JSON = JSON.parse(localStorage.getItem("usuarioEnLinea"));
+  arrayResultados : Array<any> = new Array<any>();
 
   constructor() {
-    this.nuevoJuego = new JuegoPiedraPapelTijera();
+    this.nuevoJuego = new JuegoPiedraPapelTijera("Piedra, Papel o Tijera",false,this.jugador["mail"]);
     this.nuevoJuego.opcionUsuario = null;
     this.nuevoJuego.imagenMaquina = null;
     this.nuevoJuego.opcionUsuario = null;
     this.nuevoJuego.imagenesUsuario = null;
-    this.mostrarVerificar = true;
+    //this.nuevoJuego.jugador = this.jugador["mail"];
+    this.ocultarVerificar = true;
+    this.ocultarOpcionMaquina = true;
+    this.arrayResultados = JSON.parse(localStorage.getItem("Resultados"));
    }
 
    generar()
    {
-    this.ocultarGenerar = true;
-    this.mostrarVerificar = false;
+    this.ocultarVerificar = false;
     this.nuevoJuego.empezarJuego();
-    console.log(this.nuevoJuego.imagenesUsuario);
+    console.log(this.nuevoJuego.opcionMaquina);
    }
 
    verificar()
    {
-    this.mostrarVerificar = true; 
     if(this.nuevoJuego.verificar())
       {
-        //alert("Ganaste perrito!");
+        // this.nuevoJuego.opcionUsuario = null;
+        // this.nuevoJuego.imagenMaquina = null;
+        // this.nuevoJuego.opcionUsuario = null;
+        // this.nuevoJuego.imagenesUsuario = null;
+        console.log(this.nuevoJuego);
         this.MostarMensaje("Genio. Le ganaste a la maquina!",true);
       }
       else
         {
           let mensaje:string;
+          console.log(this.nuevoJuego);
           //alert("Segui participando!");
-          mensaje = "Mala suerte. Has perdido con la maquina"
+          mensaje = "Mala suerte. Has perdido con la maquina por que habia elegido "+this.nuevoJuego.opcionMaquina;
           this.MostarMensaje(mensaje,false);
         }
+        this.arrayResultados.push(this.nuevoJuego);
+        localStorage.setItem("Resultados",JSON.stringify(this.arrayResultados));
+        this.nuevoJuego = new JuegoPiedraPapelTijera("Piedra, Papel o Tijera",false,this.jugador["mail"]);
    }
 
 
@@ -59,7 +69,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
     var modelo=this;
     setTimeout(function(){ 
       x.className = x.className.replace("show", "");
-      modelo.mostrarVerificar = false;
+      modelo.ocultarVerificar = false;
      }, 3000);
     console.info("objeto",x);
   
