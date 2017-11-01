@@ -51,6 +51,7 @@ import { GanoComponent } from './componentes/gano/gano.component';
 import { GanoPipe } from './pipes/gano.pipe';
 import { PuntosPipe } from './pipes/puntos.pipe';
 import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
+import { AdivinaLaSeriePeliculaComponent } from './componentes/adivina-la-serie-pelicula/adivina-la-serie-pelicula.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/pi
     GanoComponent,
     GanoPipe,
     PuntosPipe,
-    PiedraPapelTijeraComponent
+    PiedraPapelTijeraComponent,
+    AdivinaLaSeriePeliculaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,12 @@
+<form>
+    <h1>{{nuevoJuego.nombre}}</h1>
+    <br><br>
+  <img *ngIf="nuevoJuego.elementoAdivinar != null" src="../../../assets/imagenes/Peliculas/{{nuevoJuego.elementoAdivinar['path']}}" height="350px" width="350px">
+  <br><br>
+  <div *ngFor="let opciones of nuevoJuego.opcionesMostradas">
+  <input type="radio" name="nuevoJuego.opcionIngresada" [(ngModel)]="nuevoJuego.opcionIngresada" value="{{opciones}}">{{opciones}}
+  <br><br>
+</div>
+<button (click)="generar()">Nuevo Juego</button>
+<button [hidden]="ocultarVerificar" (click)="verificar()">Verificar</button>
+</form>

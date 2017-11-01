@@ -14,9 +14,12 @@ export class AdivinaElNumeroComponent implements OnInit {
   Mensajes:string;
   contador:number;
   ocultarVerificar:boolean;
+  intentos : number;
+
+  jugador = JSON.parse(localStorage.getItem("usuarioEnLinea"));
   arrayResultados : Array<any> = new Array<any>();
   constructor() { 
-    this.nuevoJuego = new JuegoAdivina();
+    this.nuevoJuego = new JuegoAdivina("Adivina el Numero",false,this.jugador["mail"]);
     console.info("numero Secreto:",this.nuevoJuego.numeroSecreto);  
     this.ocultarVerificar=false;
     this.arrayResultados = JSON.parse(localStorage.getItem("Resultados"));
@@ -24,6 +27,7 @@ export class AdivinaElNumeroComponent implements OnInit {
   generarnumero() {
     this.nuevoJuego.generarnumero();
     this.contador=0;
+    this.intentos = 3;
   }
   verificar()
   {
@@ -32,26 +36,32 @@ export class AdivinaElNumeroComponent implements OnInit {
     console.info("numero Secreto:",this.nuevoJuego.gano);  
     if (this.nuevoJuego.verificar()){
       
-      // this.enviarJuego.emit(this.nuevoJuego);
-      this.enviarJuego.emit(new JuegoAdivina(this.nuevoJuego.nombre,this.nuevoJuego.gano,this.nuevoJuego.jugador));      
+      this.enviarJuego.emit(this.nuevoJuego);
       this.MostarMensaje("Sos un Genio!!!",true);
-      this.nuevoJuego.numeroSecreto=0;
-
+      //this.nuevoJuego.numeroSecreto=0;
+      this.arrayResultados.push(this.nuevoJuego);
+      localStorage.setItem("Resultados",JSON.stringify(this.arrayResultados));
+      this.nuevoJuego = new JuegoAdivina("Adivina el Numero",false,this.jugador["mail"]);
     }else{
+      //Solamente tenes 3 intentos para adivinar el numero!!
       let mensaje:string;
       switch (this.contador) {
         case 1:
           mensaje="No, intento fallido, animo";
+          this.intentos -= this.contador;
           break;
           case 2:
           mensaje="No,Te estaras Acercando???";
+          this.intentos -= this.contador;
           break;
           case 3:
           //mensaje="No es, Yo crei que la tercera era la vencida.";
           mensaje = "Ya agotaste las chances que tenias para ganar!";
-          this.enviarJuego.emit(new JuegoAdivina(this.nuevoJuego.nombre,this.nuevoJuego.gano,this.nuevoJuego.jugador));
-          this.nuevoJuego.numeroSecreto = 0;
-          this.nuevoJuego.numeroIngresado = 0;
+          this.intentos -= this.contador;
+          this.enviarJuego.emit(this.nuevoJuego);
+          this.arrayResultados.push(this.nuevoJuego);
+          localStorage.setItem("Resultados",JSON.stringify(this.arrayResultados));
+          this.nuevoJuego = new JuegoAdivina("Adivina el Numero",false,this.jugador["mail"]);
           break;
           case 4:
           mensaje="No era el  "+this.nuevoJuego.numeroIngresado;
@@ -68,11 +78,7 @@ export class AdivinaElNumeroComponent implements OnInit {
           break;
       }
       this.MostarMensaje("#"+this.contador+" "+mensaje+" ayuda :"+this.nuevoJuego.retornarAyuda());
-     
-
     }
-    this.arrayResultados.push(this.nuevoJuego);
-    localStorage.setItem("Resultados",JSON.stringify(this.arrayResultados));
     console.info("numero Secreto:",this.nuevoJuego.gano);  
   }  
 

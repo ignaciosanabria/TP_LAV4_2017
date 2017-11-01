@@ -1,0 +1,18 @@
+form {
+    border: 10px solid #f1f1f1;
+    padding: 10px;
+    background-color: royalblue;
+    text-align: center;
+}
+img{
+    border-radius: 8px;
+}
+
+input [type="radio"]{
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1{
+    color: red;
+    text-underline-position: above;
+}

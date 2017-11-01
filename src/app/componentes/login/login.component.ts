@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
   arrayUsuarios : Array<any> = new Array<any>();
   arrayResultados: Array<any> = new Array<any>();
 
+  usuarioJugador : any;
+  usuarioEncontrado : boolean;
+
   clase="progress-bar progress-bar-info progress-bar-striped ";
 
   constructor(
@@ -27,8 +30,12 @@ export class LoginComponent implements OnInit {
     private router: Router) {
       this.progreso=0;
       this.ProgresoDeAncho="0%";
+      this.arrayUsuarios = JSON.parse(localStorage.getItem("Usuarios"));
+      if(this.arrayUsuarios == null)//Si no hay jugadores Nuevos, el array de Jugadores se reinicia con dos jugadores predeterminados
+      {
       this.arrayUsuarios.push({mail:"administrador@outlook.com", clave:"1234"});
       this.arrayUsuarios.push({mail:"leandro_12@hotmail.com",clave:"boca1234"});
+      }
       let usuarioRegistrado = JSON.parse(localStorage.getItem("usuarioRegistrado"));
       if(usuarioRegistrado != null) //Si un usuario se registra este se almacena en el LocalStorage y luego se lo agrega al arraydeUsuarios
         {
@@ -49,16 +56,32 @@ export class LoginComponent implements OnInit {
     // if (this.usuario === 'admin' && this.clave === 'admin') {
     //   this.router.navigate(['/Principal']);
     // }
+    this.usuarioEncontrado = false;
     this.arrayUsuarios = JSON.parse(localStorage.getItem("Usuarios"));
     console.log(this.arrayUsuarios);
     for(let i = 0; i < this.arrayUsuarios.length; i++)
       {
         if(this.arrayUsuarios[i]["mail"] == this.usuario && this.arrayUsuarios[i]["clave"] == this.clave)
           {
-            localStorage.setItem("usuarioEnLinea",JSON.stringify(this.arrayUsuarios[i]));
-            this.router.navigate(['/Principal']);
+            this.usuarioEncontrado = true;
+            this.usuarioJugador = this.arrayUsuarios[i];
+            break;
           }
       }
+      if(this.usuarioEncontrado)
+        {
+          localStorage.setItem("usuarioEnLinea",JSON.stringify(this.usuarioJugador));
+          this.router.navigate(['/Principal']);
+        }
+        else
+          {
+            alert("ERROR. No existe el usuario con el que quiere ingresar!");
+            //location.reload();
+            this.progreso=0;
+            this.ProgresoDeAncho="0%";
+            this.usuario = null;
+            this.clave = null;
+          }
   }
   MoverBarraDeProgreso() {
     
