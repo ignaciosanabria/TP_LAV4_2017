@@ -99,7 +99,10 @@ export class JuegoAdivinaPeliculaSerie extends Juego {
       }
     public verificar()
     {
-        
+        if(this.opcionCorrecta == this.opcionIngresada)
+            {
+                this.gano = true;
+            }
         if(this.gano)
             {
                 return true;

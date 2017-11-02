@@ -4,9 +4,10 @@
   <img *ngIf="nuevoJuego.elementoAdivinar != null" src="../../../assets/imagenes/Peliculas/{{nuevoJuego.elementoAdivinar['path']}}" height="350px" width="350px">
   <br><br>
   <div *ngFor="let opciones of nuevoJuego.opcionesMostradas">
-  <input type="radio" name="nuevoJuego.opcionIngresada" [(ngModel)]="nuevoJuego.opcionIngresada" value="{{opciones}}">{{opciones}}
+  <input type="radio" name="nuevoJuego.opcionIngresada" [(ngModel)]="nuevoJuego.opcionIngresada" value="{{opciones}}"><label>{{opciones}}</label>
   <br><br>
 </div>
-<button (click)="generar()">Nuevo Juego</button>
-<button [hidden]="ocultarVerificar" (click)="verificar()">Verificar</button>
+<button class="NuevoJuegobtn" *ngIf="nuevoJuego.elementoAdivinar == null" (click)="generar()">Nuevo Juego</button>
+<button class="Verificarbtn" [hidden]="ocultarVerificar" *ngIf="nuevoJuego.elementoAdivinar != null" (click)="verificar()">Verificar</button>
 </form>
+<div id="snackbar">{{Mensajes}}</div>

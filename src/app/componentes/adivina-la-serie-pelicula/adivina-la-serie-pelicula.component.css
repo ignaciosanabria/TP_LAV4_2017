@@ -9,10 +9,70 @@ img{
 }
 
 input [type="radio"]{
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 5px 15px;
+    background: #FF4136;
+    border-radius: 2px;
+    color: #fff
 }
 
 h1{
     color: red;
     text-underline-position: above;
+}
+
+label{
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-size: 25px;
+}
+
+button {
+    /*background-color: #4CAF50;*/
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.Verificarbtn {
+    width: auto;
+    padding: 10px 50px;
+    background-color: green;
+}
+.NuevoJuegobtn {
+    width: auto;
+    padding: 10px 50px;
+    background-color: #FF4136
+}
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+   
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+#snackbar.Ganador {
+    background-color: #059F2F;
+}
+#snackbar.Perdedor {
+    background-color: #FF0000;
+}
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }

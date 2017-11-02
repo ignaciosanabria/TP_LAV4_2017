@@ -8,14 +8,30 @@ import { JuegoServiceService } from '../../servicios/juego-service.service';
 })
 export class ListadoComponent implements OnInit {
   public listadoParaCompartir: Array<any>;
-   miServicioJuego:JuegoServiceService
+  juegoElegido : string;
+   miServicioJuego:JuegoServiceService;
+   opcionSeleccionar : boolean;
   constructor(servicioJuego:JuegoServiceService) { 
     this.miServicioJuego = servicioJuego;
     this.listadoParaCompartir = JSON.parse(localStorage.getItem("Resultados"));  
+    this.opcionSeleccionar = true;
   }
   
   ngOnInit() {
     
+  }
+
+  verGanadores()
+  {
+   this.listadoParaCompartir = this.listadoParaCompartir.filter(function(valor)
+  {
+    return valor.gano == true;
+  });
+  }
+
+  filtrarPorJuego(juego : string)
+  {
+    console.log(juego);
   }
 
   llamaService(){

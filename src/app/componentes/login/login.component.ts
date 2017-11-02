@@ -31,8 +31,10 @@ export class LoginComponent implements OnInit {
       this.progreso=0;
       this.ProgresoDeAncho="0%";
       this.arrayUsuarios = JSON.parse(localStorage.getItem("Usuarios"));
+      console.log(this.arrayUsuarios);
       if(this.arrayUsuarios == null)//Si no hay jugadores Nuevos, el array de Jugadores se reinicia con dos jugadores predeterminados
       {
+      this.arrayUsuarios = new Array<any>();
       this.arrayUsuarios.push({mail:"administrador@outlook.com", clave:"1234"});
       this.arrayUsuarios.push({mail:"leandro_12@hotmail.com",clave:"boca1234"});
       }

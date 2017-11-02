@@ -34,6 +34,9 @@ export class MenuComponent implements OnInit {
       case 'PPT':
       this.router.navigate(['/Juegos/PiedraPapelTijera']);
       break;
+      case 'AdivinaLaPeliculaSerie':
+      this.router.navigate(['/Juegos/AdivinaLaPeliculaSerie']);
+      break;
     }
   }
 
