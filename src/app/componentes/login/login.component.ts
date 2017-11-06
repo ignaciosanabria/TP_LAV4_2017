@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
+import { JuegoServiceService } from '../../servicios/juego-service.service';
 import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
 @Component({
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   ProgresoDeAncho:string;
   arrayUsuarios : Array<any> = new Array<any>();
   arrayResultados: Array<any> = new Array<any>();
-
+  miJuegoServicio : JuegoServiceService;
   usuarioJugador : any;
   usuarioEncontrado : boolean;
 
@@ -27,9 +27,11 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    servicioJuego:JuegoServiceService) {
       this.progreso=0;
       this.ProgresoDeAncho="0%";
+      this.miJuegoServicio = servicioJuego;
       this.arrayUsuarios = JSON.parse(localStorage.getItem("Usuarios"));
       console.log(this.arrayUsuarios);
       if(this.arrayUsuarios == null)//Si no hay jugadores Nuevos, el array de Jugadores se reinicia con dos jugadores predeterminados
@@ -44,9 +46,12 @@ export class LoginComponent implements OnInit {
           this.arrayUsuarios.push(usuarioRegistrado);
         }
         let resultadosPrevios = JSON.parse(localStorage.getItem("Resultados"));
-        if(resultadosPrevios == null)//Si no hay resultados previos de otros jugadores, el arrayDeResultados se reinicia
+        console.log(resultadosPrevios);
+        if(resultadosPrevios == null)//Si no hay resultados previos de otros jugadores, el arrayDeResultados se inicia llamando reinicia
           {
-        localStorage.setItem("Resultados",JSON.stringify(this.arrayResultados));
+            console.log("Llame a servicio juegos porque no hay resultados cargados");
+            this.arrayResultados = this.miJuegoServicio.listar();
+            localStorage.setItem("Resultados",JSON.stringify(this.arrayResultados));
           }
         localStorage.setItem("Usuarios",JSON.stringify(this.arrayUsuarios));
   }

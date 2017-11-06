@@ -1,7 +1,7 @@
 .panel
 {
-    height: 200px;
-    background-image: url("/assets/imagenes/cabecera.png");
+    height: 250px;
+    background-image: url("/assets/imagenes/cabecera.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,7 +24,8 @@ outline: 0;
 display: inline-block;
 padding: 10px 25px;
 color: black;
-background-color: #ddd;
+background-color: darkcyan;
+border-radius: 10px;
 text-align: center;
 cursor: pointer;
 }
@@ -33,3 +34,28 @@ cursor: pointer;
 background-color: #555;
 color: white;
 }
+
+h1{
+    font-size: 60px;
+    color: orangered;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+p{
+    font-size: 20px;
+    color: orangered;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.cerrarSesionBtn
+{
+    font-size: 20px;
+    color: orangered;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+li:hover{
+    background-color: lightblue;
+}
+
+
+

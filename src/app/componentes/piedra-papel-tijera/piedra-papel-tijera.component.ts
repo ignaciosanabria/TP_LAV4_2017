@@ -32,28 +32,74 @@ export class PiedraPapelTijeraComponent implements OnInit {
     console.log(this.nuevoJuego.opcionMaquina);
    }
 
-   verificar()
+   verificar(opcionUsuario : string)
    {
-    if(this.nuevoJuego.verificar())
+     this.nuevoJuego.opcionUsuario = opcionUsuario;
+     console.log(this.nuevoJuego.opcionUsuario);
+     switch(opcionUsuario)
+     {
+       case "piedra":
+       var boton = ((<HTMLInputElement>document.getElementById("btn1")));
+       console.log(boton);
+       boton.className = "btnApretado";
+       console.log(boton.className);
+       break;
+       case "papel":
+       var boton = ((<HTMLInputElement>document.getElementById("btn2")));
+       console.log(boton);
+       boton.className = "btnApretado";
+       console.log(boton.className);
+       break;
+       case "tijera":
+       var boton = ((<HTMLInputElement>document.getElementById("btn3")));
+       console.log(boton);
+       boton.className = "btnApretado";
+       console.log(boton.className);
+       break;
+     }
+     var modelo=this;
+     setTimeout(function(){
+        if(modelo.nuevoJuego.verificar())
       {
         // this.nuevoJuego.opcionUsuario = null;
         // this.nuevoJuego.imagenMaquina = null;
         // this.nuevoJuego.opcionUsuario = null;
         // this.nuevoJuego.imagenesUsuario = null;
-        console.log(this.nuevoJuego);
-        this.MostarMensaje("Genio. Le ganaste a la maquina!",true);
+        console.log(modelo.nuevoJuego);
+        modelo.MostarMensaje("Genio. Le ganaste a la maquina!",true);
       }
       else
         {
           let mensaje:string;
-          console.log(this.nuevoJuego);
+          console.log(modelo.nuevoJuego);
           //alert("Segui participando!");
-          mensaje = "Mala suerte. Has perdido con la maquina por que habia elegido "+this.nuevoJuego.opcionMaquina;
-          this.MostarMensaje(mensaje,false);
+          mensaje = "Mala suerte. Has perdido con la maquina por que habia elegido "+modelo.nuevoJuego.opcionMaquina;
+          modelo.MostarMensaje(mensaje,false);
         }
-        this.arrayResultados.push(this.nuevoJuego);
-        localStorage.setItem("Resultados",JSON.stringify(this.arrayResultados));
-        this.nuevoJuego = new JuegoPiedraPapelTijera("Piedra, Papel o Tijera",false,this.jugador["mail"]);
+        modelo.arrayResultados.push(modelo.nuevoJuego);
+        localStorage.setItem("Resultados",JSON.stringify(modelo.arrayResultados));
+        modelo.nuevoJuego = new JuegoPiedraPapelTijera("Piedra, Papel o Tijera",false,modelo.jugador["mail"]);
+     },4000);
+    //  if(this.nuevoJuego.verificar())
+    //   {
+    //     // this.nuevoJuego.opcionUsuario = null;
+    //     // this.nuevoJuego.imagenMaquina = null;
+    //     // this.nuevoJuego.opcionUsuario = null;
+    //     // this.nuevoJuego.imagenesUsuario = null;
+    //     console.log(this.nuevoJuego);
+    //     this.MostarMensaje("Genio. Le ganaste a la maquina!",true);
+    //   }
+    //   else
+    //     {
+    //       let mensaje:string;
+    //       console.log(this.nuevoJuego);
+    //       //alert("Segui participando!");
+    //       mensaje = "Mala suerte. Has perdido con la maquina por que habia elegido "+this.nuevoJuego.opcionMaquina;
+    //       this.MostarMensaje(mensaje,false);
+    //     }
+    //     this.arrayResultados.push(this.nuevoJuego);
+    //     localStorage.setItem("Resultados",JSON.stringify(this.arrayResultados));
+    //     this.nuevoJuego = new JuegoPiedraPapelTijera("Piedra, Papel o Tijera",false,this.jugador["mail"]);
    }
 
 
@@ -73,7 +119,18 @@ export class PiedraPapelTijeraComponent implements OnInit {
      }, 3000);
     console.info("objeto",x);
   
-   } 
+   }
+   
+   verImagen()
+   {
+     let btn = ((<HTMLInputElement>document.getElementById("btn1")).value);
+     let btn2 = ((<HTMLInputElement>document.getElementById("btn2")).value);
+     console.log(btn);
+     console.log(btn2);
+   }
+
+
+
 
   ngOnInit() {
   }

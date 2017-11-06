@@ -1,6 +1,8 @@
 .imagenDeMenu{
-width: 80px;
-height: 70px;
+width: 90px;
+height: 80px;
+border-radius: 10px;
+border: 2px solid blue;
 }
 
 .hero-text {
@@ -11,3 +13,17 @@ height: 70px;
     transform: translate(-50%, -50%);
     color: #100000;
     }
+.lala
+{
+    background-color: lightblue;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    -webkit-background-size : cover;
+    -moz-background-size : cover;
+    -moz-background-size : cover;
+    background-size: cover;
+    margin:0;
+    padding:0;
+}
+

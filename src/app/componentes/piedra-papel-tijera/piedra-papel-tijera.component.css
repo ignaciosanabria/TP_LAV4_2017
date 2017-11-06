@@ -45,3 +45,29 @@ button:hover {
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
+.imgPiedra{
+    background-image: url("../../../assets/imagenes/PPT/piedra.png");
+    height: 250px;
+    width: 250px;
+}
+
+.btnOpciones{
+color: white;
+background-color: red;
+padding: 14px 15px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 30%;
+border-radius: 40px;
+}
+
+.btnApretado{color: white;
+background-color: green;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 30%;
+}
+

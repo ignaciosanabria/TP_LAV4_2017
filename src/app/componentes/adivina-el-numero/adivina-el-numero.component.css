@@ -2,7 +2,20 @@
 form {
     border: 10px solid #f1f1f1;
     padding: 10px;
-    background:gray;
+    background-color: slategray;
+}
+
+.fondo{
+    background-color: lightblue;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    -webkit-background-size : cover;
+    -moz-background-size : cover;
+    -moz-background-size : cover;
+    background-size: cover;
+    margin:0;
+    padding:0;
 }
 
 input[type=text], input[type=password] {

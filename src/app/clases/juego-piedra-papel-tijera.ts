@@ -62,6 +62,7 @@ export class JuegoPiedraPapelTijera extends Juego{
       {
         let index = Math.floor((Math.random() * 2) + 0);
         this.opcionMaquina = this.arrayElementos[index]["valor"];
+        console.log(this.opcionMaquina);
         this.imagenMaquina = this.arrayElementos[index]["path"];
         this.imagenesUsuario = this.arrayElementos;
       }

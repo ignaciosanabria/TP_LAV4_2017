@@ -10,12 +10,12 @@ export class JuegoServiceService {
 
     let miArray: Array<Juego> = new Array<Juego>();
 
-    miArray.push(new JuegoAdivina("Juego 1", false));
-    miArray.push(new JuegoAdivina("Pepe", true));
-    miArray.push(new JuegoAdivina("Juego 3", false));
-    miArray.push(new JuegoAdivina("Juego 4", false));
-    miArray.push(new JuegoAdivina("Juego 5", false));
-    miArray.push(new JuegoAdivina("Juego 6", false));
+    miArray.push(new JuegoAdivina("leandro_12@hotmail.com", false));
+    miArray.push(new JuegoAdivina("administrador@outlook.com", true));
+    miArray.push(new JuegoAdivina("administrador@outlook.com", false));
+    miArray.push(new JuegoAdivina("administrador@outlook.com", false));
+    miArray.push(new JuegoAdivina("leandro_12@hotmail.com", false));
+    miArray.push(new JuegoAdivina("leandro_12@hotmail.com", false));
     return miArray;
   }
 

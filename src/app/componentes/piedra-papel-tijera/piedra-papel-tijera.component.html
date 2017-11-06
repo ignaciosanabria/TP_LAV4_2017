@@ -5,16 +5,11 @@
 <br><br>
 <div *ngIf="nuevoJuego.imagenesUsuario != null">
 <h2>Vos que opcion elegis?</h2>
-      <img src="../../../assets/imagenes/PPT/{{nuevoJuego.imagenesUsuario[0]['path']}}" width="250px" height="250px">
-      <img src="../../../assets/imagenes/PPT/{{nuevoJuego.imagenesUsuario[1]['path']}}" width="250px" height="250px">
-      <img src="../../../assets/imagenes/PPT/{{nuevoJuego.imagenesUsuario[2]['path']}}" width="250px" height="250px">
-      <br>
-      <input type="radio" name="opcionUsuario" value="{{nuevoJuego.imagenesUsuario[0]['valor']}}" [(ngModel)]="nuevoJuego.opcionUsuario">{{nuevoJuego.imagenesUsuario[0]['valor']}}
-      <input type="radio" name="opcionUsuario" value="{{nuevoJuego.imagenesUsuario[1]['valor']}}" [(ngModel)]="nuevoJuego.opcionUsuario">{{nuevoJuego.imagenesUsuario[1]['valor']}}
-       <input type="radio" name="opcionUsuario" value="{{nuevoJuego.imagenesUsuario[2]['valor']}}" [(ngModel)]="nuevoJuego.opcionUsuario">{{nuevoJuego.imagenesUsuario[2]['valor']}}
         <br><br>
-</div>
+        <button (click)="verificar('piedra')" class="btnOpciones" value="piedra" id="btn1"><img src="../../../assets/imagenes/PPT/{{nuevoJuego.imagenesUsuario[0]['path']}}" width="250px" height="250px"></button>
+        <button (click)="verificar('papel')" class="btnOpciones" value="papel" id="btn2"><img src="../../../assets/imagenes/PPT/{{nuevoJuego.imagenesUsuario[1]['path']}}" width="250px" height="250px"></button>
+        <button (click)="verificar('tijera')" class="btnOpciones" value="tijera" id="btn3"><img src="../../../assets/imagenes/PPT/{{nuevoJuego.imagenesUsuario[2]['path']}}" width="250px" height="250px"></button>
+      </div>
 <button *ngIf="nuevoJuego.imagenMaquina == null" (click)="generar()">Comenzar Nuevo Juego</button>
-<button [hidden]="ocultarVerificar" *ngIf="nuevoJuego.imagenMaquina != null"(click)="verificar()">Verificar</button>
 </form>
 <div id="snackbar">{{Mensajes}}</div>

@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <!--app-menu></app-menu-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="fondo">
 <div style="text-align:center">
   <h1>
     {{nuevoJuego.nombre}}!
@@ -9,8 +9,8 @@
 <h2 *ngIf="nuevoJuego.numeroSecreto!=0">Te quedan {{intentos}} intentos</h2>
 <form name="juego">
    
-   <label>ingrese numero:  </label>  <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
-    <h1>{{nuevoJuego.numeroIngresado}}  </h1>
+   <label>Ingrese Número:  </label>  <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
+    <h1>Tu numero ingresado es: {{nuevoJuego.numeroIngresado}}  </h1>
  
     <h2 [hidden]="ocultarVerificar"><button  *ngIf="nuevoJuego.numeroSecreto!=0" (click)="verificar()" class="btn btn-success btn-lg">Verificar</button></h2>
  
@@ -24,3 +24,4 @@
 
 </form>
 <div id="snackbar">{{Mensajes}}</div>
+</div>

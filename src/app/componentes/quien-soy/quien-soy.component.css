@@ -9,8 +9,19 @@ body {
 }
 p {font-size: 16px;}
 .margin {margin-bottom: 45px;}
+.tituloInstruccion {
+    margin-bottom: 45px;
+    color: red;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: underline;
+
+}
+.instrucciones{
+  color: maroon;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 .bg-1 { 
-    background-color: #1abc9c; /* Green */
+    background-color: lightgreen; /* Green */
     color: #ffffff;
 }
 .bg-2 { 
