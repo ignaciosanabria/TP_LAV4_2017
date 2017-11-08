@@ -12,8 +12,9 @@ export class AnagramaComponent implements OnInit {
   Mensajes:string;
   contador:number;
   arrayResultados : Array<any> = new Array<any>();
+  jugador = JSON.parse(localStorage.getItem("usuarioEnLinea"));
   constructor() { 
-    this.anagrama = new JuegoAnagrama();
+    this.anagrama = new JuegoAnagrama("Anagrama",false,this.jugador["mail"]);
     this.anagrama.palabraDesorganizada = null;
     this.ocultarVerificar = true;
     this.arrayResultados = JSON.parse(localStorage.getItem("Resultados"));
@@ -40,9 +41,6 @@ export class AnagramaComponent implements OnInit {
     if(this.anagrama.verificar())
       {
         this.MostarMensaje("Genio. Has acertado la palabra!",true);
-        this.anagrama.palabraCorrecta = null;
-        this.anagrama.palabraDesorganizada = null;
-        this.anagrama.palabraIngresada = null;
       }
       else
         {
@@ -61,6 +59,7 @@ export class AnagramaComponent implements OnInit {
         }
         this.arrayResultados.push(this.anagrama);
         localStorage.setItem("Resultados",JSON.stringify(this.arrayResultados));
+        this.anagrama = new JuegoAnagrama("Anagrama",false,this.jugador["mail"]);
   }
 
 

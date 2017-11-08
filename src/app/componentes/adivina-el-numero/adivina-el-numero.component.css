@@ -1,8 +1,11 @@
 
 form {
-    border: 10px solid darkblue;
-    padding: 10px;
-    background-color: slategray;
+    background-color: grey;
+    text-align: center;
+    border: 2px solid wheat;
+    padding:0px;
+    margin: 0 auto;
+    background-position: center;
 }
 
 .estilosContainer{
@@ -14,11 +17,8 @@ form {
     -moz-background-size : cover;
     -moz-background-size : cover;
     background-size: cover;
-    margin:0;
-    padding:0;
-}
-.container {
-    padding: 10px;
+    margin:1;
+    padding:6%;
 }
 
 input[type=text], input[type=password] {
@@ -37,7 +37,9 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    border-radius: 40px;
+    border: white 4px solid;
+    width: 75%;
 }
 
 button:hover {

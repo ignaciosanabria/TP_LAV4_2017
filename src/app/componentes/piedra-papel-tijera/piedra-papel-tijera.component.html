@@ -1,5 +1,6 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container estilosContainer">
 <form>
+  <h1>{{nuevoJuego.nombre}}</h1>
 <h2 [hidden]="ocultarOpcionMaquina">La maquina había elegido</h2>
 <img [hidden]="ocultarOpcionMaquina" src="../../../assets/imagenes/PPT/{{nuevoJuego.imagenMaquina}}" width="300px" height="300px">
 <br><br>
@@ -12,4 +13,6 @@
       </div>
 <button *ngIf="nuevoJuego.imagenMaquina == null" (click)="generar()">Comenzar Nuevo Juego</button>
 </form>
+<br><br><br>
+</div>
 <div id="snackbar">{{Mensajes}}</div>
