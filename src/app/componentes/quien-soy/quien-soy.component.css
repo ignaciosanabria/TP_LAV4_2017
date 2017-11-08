@@ -7,30 +7,34 @@ body {
     line-height: 1.8;
     color: #f5f6f7;
 }
+
 p {font-size: 16px;}
 .margin {margin-bottom: 45px;}
 .tituloInstruccion {
     margin-bottom: 45px;
+    font-size: 25px;
     color: red;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-decoration: underline;
 
 }
 .instrucciones{
-  color: maroon;
+  color: darkorange;
+  text-align: left;
+  font-size: 20px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .bg-1 { 
-    background-color: lightgreen; /* Green */
-    color: #ffffff;
+    background-color: orange;/* Green */
+    color: darkblue;
 }
 .bg-2 { 
     background-color: #474e5d; /* Dark Blue */
     color: #ffffff;
 }
 .bg-3 { 
-    background-color: #ffffff; /* White */
-    color: #555555;
+    background-color: #20B2A9; /* White */
+    color: white;
 }
 .bg-4 { 
     background-color: #2f2f2f; /* Black Gray */
@@ -48,7 +52,20 @@ p {font-size: 16px;}
     margin-bottom: 0;
     font-size: 12px;
     letter-spacing: 5px;
+    background-color: #20B2A9;
 }
 .navbar-nav  li a:hover {
-    color: #1abc9c !important;
+    color: #19BC9C !important;
+}
+
+.navbar-nav li a{
+    color:red;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.navbar-brand{
+    color: red;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
 }

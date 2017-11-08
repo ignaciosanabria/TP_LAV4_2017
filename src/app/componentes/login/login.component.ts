@@ -60,9 +60,6 @@ export class LoginComponent implements OnInit {
   }
 
   Entrar() {
-    // if (this.usuario === 'admin' && this.clave === 'admin') {
-    //   this.router.navigate(['/Principal']);
-    // }
     this.usuarioEncontrado = false;
     this.arrayUsuarios = JSON.parse(localStorage.getItem("Usuarios"));
     console.log(this.arrayUsuarios);

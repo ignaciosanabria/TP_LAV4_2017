@@ -1,3 +1,4 @@
+<div class="container estilosContainer">
 <form>
 <h1>Anagrama</h1>
 <h2 [hidden]="ocultarPalabra" *ngIf="anagrama.palabraDesorganizada != null">{{anagrama.palabraDesorganizada}}</h2>
@@ -11,3 +12,4 @@
 <button [hidden]="ocultarVerificar"  *ngIf="anagrama.palabraDesorganizada != null" (click) = "verificar()">Verificar</button>
 </form>
 <div id="snackbar">{{Mensajes}}</div>
+</div>

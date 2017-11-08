@@ -13,6 +13,11 @@ border: 2px solid blue;
     transform: translate(-50%, -50%);
     color: #100000;
     }
+.media-bodyEstilos {
+    background-color: orange;
+}
+
+
 .lala
 {
     background-color: lightblue;
@@ -24,6 +29,6 @@ border: 2px solid blue;
     -moz-background-size : cover;
     background-size: cover;
     margin:0;
-    padding:0;
+    padding:1px;
 }
 

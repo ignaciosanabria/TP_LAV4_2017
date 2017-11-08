@@ -7,6 +7,10 @@ export class JuegoAgilidad extends Juego{
     resultadoVerdadero: number;
     resultadoJugador : number;
 
+    constructor(nombre?: string, gano?: boolean, jugador?:string) {
+        super("Agilidad Aritmética",gano,jugador);  
+      }
+
     public generar()
     {
         this.numeroUno =  Math.floor((Math.random() * 10) + 1);

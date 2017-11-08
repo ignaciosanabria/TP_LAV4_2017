@@ -48,7 +48,7 @@ export class JuegoAnagrama extends Juego
 
    {
     "palabra": ["MJANÓ","AJÓMN","ÓJMAN"],
-    "correcta" : "JAMON"
+    "correcta" : "JAMÓN"
    },
 
    {

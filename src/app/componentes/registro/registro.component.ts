@@ -10,7 +10,7 @@ export class RegistroComponent implements OnInit {
     
     public fb : FormBuilder;
     public claves : FormGroup;
-    public registroMail : FormControl = new FormControl("",[Validators.required, Validators.minLength(15), Validators.maxLength(80), Validators.email]); //(?=.*\d)(?=.*[a-zA-Z])
+    public registroMail : FormControl = new FormControl("",[Validators.required, Validators.minLength(10), Validators.maxLength(80), Validators.email]); //(?=.*\d)(?=.*[a-zA-Z])
     public registroClave : FormControl = new FormControl("",[Validators.required, Validators.minLength(5), Validators.maxLength(18)]);
     public registroRepetirClave : FormControl = new FormControl("",[Validators.required, Validators.minLength(5), Validators.maxLength(18)]);//[0-9]+[a-zA-Z ]*
     

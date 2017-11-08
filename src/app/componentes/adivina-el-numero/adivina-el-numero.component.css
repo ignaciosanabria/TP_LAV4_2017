@@ -1,11 +1,11 @@
 
 form {
-    border: 10px solid #f1f1f1;
+    border: 10px solid darkblue;
     padding: 10px;
     background-color: slategray;
 }
 
-.fondo{
+.estilosContainer{
     background-color: lightblue;
     background-position: center;
     background-repeat: no-repeat;
@@ -16,6 +16,9 @@ form {
     background-size: cover;
     margin:0;
     padding:0;
+}
+.container {
+    padding: 10px;
 }
 
 input[type=text], input[type=password] {
@@ -59,10 +62,6 @@ button:hover {
 img.avatar {
     width: 40%;
     border-radius: 50%;
-}
-
-.container {
-    padding: 16px;
 }
 
 span.psw {
