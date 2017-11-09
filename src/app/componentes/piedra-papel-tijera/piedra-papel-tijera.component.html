@@ -12,7 +12,7 @@
         <button (click)="verificar('papel')" class="btnOpciones" value="papel" id="btn2"><img src="../../../assets/imagenes/PPT/{{nuevoJuego.imagenesUsuario[1]['path']}}" width="250px" height="250px"></button>
         <button (click)="verificar('tijera')" class="btnOpciones" value="tijera" id="btn3"><img src="../../../assets/imagenes/PPT/{{nuevoJuego.imagenesUsuario[2]['path']}}" width="250px" height="250px"></button>
       </div>
-<button *ngIf="nuevoJuego.imagenMaquina == null" (click)="generar()">Comenzar Nuevo Juego</button>
+<button *ngIf="nuevoJuego.imagenMaquina == null" class="btnNuevoJuego" (click)="generar()">Comenzar Nuevo Juego</button>
 </form>
 <br><br><br>
 </div>

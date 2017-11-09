@@ -60,7 +60,7 @@ margin: 8px 0;
 border: none;
 cursor: pointer;
 width: 30%;
-border-radius: 40px;
+border-radius: 42px;
 }
 
 .btnApretado{color: white;
@@ -70,8 +70,24 @@ margin: 8px 0;
 border: none;
 cursor: pointer;
 width: 30%;
-border-radius: 40px;
+border-radius: 42px;
 }
+
+.btnApretado:hover{
+    opacity: 0.8;
+}
+
+.btnNuevoJuego{
+    background-color: green;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 60%;
+    border-radius: 40px;
+    border: white 4px solid;
+}
+
 
 .estilosContainer{
 background-color: lightblue;
