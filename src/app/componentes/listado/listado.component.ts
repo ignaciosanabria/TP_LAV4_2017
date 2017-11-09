@@ -20,18 +20,43 @@ export class ListadoComponent implements OnInit {
   ngOnInit() {
     
   }
+  verTodos()
+  {
+    this.listadoParaCompartir = JSON.parse(localStorage.getItem("Resultados"));
+  }
 
   verGanadores()
   {
-   this.listadoParaCompartir = this.listadoParaCompartir.filter(function(valor)
+    this.listadoParaCompartir = JSON.parse(localStorage.getItem("Resultados"));  
+    this.listadoParaCompartir = this.listadoParaCompartir.filter(function(valor)
   {
     return valor.gano == true;
   });
   }
 
+  verPerdedores()
+  {
+    this.listadoParaCompartir = JSON.parse(localStorage.getItem("Resultados"));  
+    this.listadoParaCompartir = this.listadoParaCompartir.filter(function(valor)
+    {
+      return valor.gano == false;
+    });
+  }
+
   filtrarPorJuego(juego : string)
   {
-    console.log(juego);
+    if(juego == "0")
+      {
+        alert("Eliga un juego. Por favor!!");
+      }
+      else
+        {
+          this.listadoParaCompartir = JSON.parse(localStorage.getItem("Resultados"));  
+          this.listadoParaCompartir = this.listadoParaCompartir.filter(function(valor)
+          {
+            return valor.nombre == juego; 
+          });
+        }
   }
 
   llamaService(){

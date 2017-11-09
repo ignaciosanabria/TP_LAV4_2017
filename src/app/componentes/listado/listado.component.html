@@ -9,13 +9,21 @@
     <li><a (click)="llamaServicePromesa()">Serv observable</a></li>
   </ul>
 <app-listado-de-resultados [listado]="listadoParaCompartir"> </app-listado-de-resultados>
-
-<button (click)="verGanadores()">Ver Ganadores</button>
+<button class="btn btn-info" (click)="verTodos()">Ver Todos</button>
+<button class="btn btn-success"(click)="verGanadores()">Ver Ganadores</button>
+<br>
+<button class="btn btn-danger" (click)="verPerdedores()">Ver Perdedores</button>
+<br><br><br>
+<div class="select">
 <select [(ngModel)]="juegoElegido">
-  <option value="0" [selected]="opcionSeleccionar == true">Seleccionar</option>
-  <option value="Adivina la película o serie">Adivina La Película O Serie</option>
+  <option value="0"  [selected]="juegoElegido == 0">Seleccionar</option>
+  <option value="Adivina la película o serie">Adivina la película o serie</option>
   <option value="Anagrama">Anagrama</option>
+  <option value="Agilidad Aritmética">Agilidad Aritmética</option>
+  <option value="Adivina el número">Adivina el número</option>
+  <option value="Piedra, Papel o Tijera">Piedra, Papel o Tijera</option>
 </select>
-
-<button (click)="filtrarPorJuego(juegoElegido)">Ver Por Juegos</button>
+</div>
+<br>
+<button class="btn btn-info"(click)="filtrarPorJuego(juegoElegido)">Ver Por Juegos</button>
 
