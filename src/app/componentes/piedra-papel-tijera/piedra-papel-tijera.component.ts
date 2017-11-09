@@ -9,6 +9,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
   nuevoJuego : JuegoPiedraPapelTijera;
   ocultarVerificar : boolean;
   ocultarOpcionMaquina : boolean;
+  ocultarSpinner : boolean;
   Mensajes:string;
   jugador : JSON = JSON.parse(localStorage.getItem("usuarioEnLinea"));
   arrayResultados : Array<any> = new Array<any>();
@@ -20,6 +21,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
     this.nuevoJuego.opcionUsuario = null;
     this.nuevoJuego.imagenesUsuario = null;
     //this.nuevoJuego.jugador = this.jugador["mail"];
+    this.ocultarSpinner = true;
     this.ocultarVerificar = true;
     this.ocultarOpcionMaquina = true;
     this.arrayResultados = JSON.parse(localStorage.getItem("Resultados"));
@@ -35,6 +37,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
    verificar(opcionUsuario : string)
    {
      this.nuevoJuego.opcionUsuario = opcionUsuario;
+     this.ocultarSpinner = false;
      console.log(this.nuevoJuego.opcionUsuario);
      switch(opcionUsuario)
      {
@@ -79,6 +82,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
         modelo.arrayResultados.push(modelo.nuevoJuego);
         localStorage.setItem("Resultados",JSON.stringify(modelo.arrayResultados));
         modelo.nuevoJuego = new JuegoPiedraPapelTijera("Piedra, Papel o Tijera",false,modelo.jugador["mail"]);
+        modelo.ocultarSpinner = true;
      },4000);
     //  if(this.nuevoJuego.verificar())
     //   {

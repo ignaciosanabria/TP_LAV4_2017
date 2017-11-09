@@ -1,23 +1,24 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <!--app-menu></app-menu-->
 <!-- index.html -->
+<div class="container estilosContainer">
 <h1>{{nuevoJuego.nombre}}</h1>
 <form name="juego">
 <ul>
    <li>
-   Primer número: <input [(ngModel)]="nuevoJuego.numeroUno" placeholder="ingrese numero" name="numeroUno" type="text" class="form-control" style="width:50%" readonly/>
+   Primer número: <input [(ngModel)]="nuevoJuego.numeroUno" placeholder="Ingrese numero" name="numeroUno" type="text" class="form-control" style="width:50%" readonly/>
   
   </li>
   <li>
-   Operador: <input [(ngModel)]="nuevoJuego.operador" placeholder="ingrese operador" name="operador" type="text" class="form-control" style="width:50%" readonly/>
+   Operador: <input [(ngModel)]="nuevoJuego.operador" placeholder="Ingrese operador" name="operador" type="text" class="form-control" style="width:50%" readonly/>
     
   </li>
   <li>
-   Segundo número: <input [(ngModel)]="nuevoJuego.numeroDos" placeholder="ingrese numero" name="numeroDos" type="text" class="form-control" style="width:50%" readonly/>
+   Segundo número: <input [(ngModel)]="nuevoJuego.numeroDos" placeholder="Ingrese numero" name="numeroDos" type="text" class="form-control" style="width:50%" readonly/>
     
   </li>
   <li>
-    Respuesta: <input [(ngModel)]="nuevoJuego.resultadoJugador" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
+    Respuesta: <input [(ngModel)]="nuevoJuego.resultadoJugador" placeholder="Ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
      
    </li>
   <li>
@@ -35,3 +36,4 @@
 </ul>
 </form>
 <div id="snackbar">{{Mensajes}}</div>
+</div>

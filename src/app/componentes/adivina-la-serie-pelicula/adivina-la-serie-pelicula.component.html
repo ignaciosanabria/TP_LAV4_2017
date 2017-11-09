@@ -1,7 +1,8 @@
+<div class="container estilosContainer">
 <form>
     <h1>{{nuevoJuego.nombre}}</h1>
     <br><br>
-  <img *ngIf="nuevoJuego.elementoAdivinar != null" src="../../../assets/imagenes/Peliculas/{{nuevoJuego.elementoAdivinar['path']}}" height="350px" width="350px">
+  <img *ngIf="nuevoJuego.elementoAdivinar != null" src="../../../assets/imagenes/Peliculas/{{nuevoJuego.elementoAdivinar['path']}}" height="325px" width="325px">
   <br><br>
   <div *ngFor="let opciones of nuevoJuego.opcionesMostradas">
   <input type="radio" name="nuevoJuego.opcionIngresada" [(ngModel)]="nuevoJuego.opcionIngresada" value="{{opciones}}"><label>{{opciones}}</label>
@@ -11,3 +12,5 @@
 <button class="Verificarbtn" [hidden]="ocultarVerificar" *ngIf="nuevoJuego.elementoAdivinar != null" (click)="verificar()">Verificar</button>
 </form>
 <div id="snackbar">{{Mensajes}}</div>
+<br><br><br><br><br><br><br><br>
+</div>

@@ -11,9 +11,9 @@ export class AdivinaLaSeriePeliculaComponent implements OnInit {
   ocultarVerificar : boolean;
   Mensajes:string;
   arrayResultados : Array<any>;
-
+  jugador = JSON.parse(localStorage.getItem("usuarioEnLinea"));
   constructor() {
-    this.nuevoJuego = new JuegoAdivinaPeliculaSerie("Adivina La Pelicula O Serie",false,"natalia natalia");
+    this.nuevoJuego = new JuegoAdivinaPeliculaSerie("Adivina La Pelicula O Serie",false,this.jugador["mail"]);
     this.ocultarVerificar = true;
     this.arrayResultados = JSON.parse(localStorage.getItem("Resultados"));
    }
@@ -40,7 +40,7 @@ export class AdivinaLaSeriePeliculaComponent implements OnInit {
         this.arrayResultados.push(this.nuevoJuego);
         localStorage.setItem("Resultados",JSON.stringify(this.arrayResultados));
         //Despues de verificar si gane o no, reinicio el juego!!
-        this.nuevoJuego = new JuegoAdivinaPeliculaSerie("Adivina La Pelicula O Serie",false,"natalia natalia");
+        this.nuevoJuego = new JuegoAdivinaPeliculaSerie("Adivina La Pelicula O Serie",false,this.jugador["mail"]);
    }
 
    MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {

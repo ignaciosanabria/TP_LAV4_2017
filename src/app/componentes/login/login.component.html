@@ -37,14 +37,13 @@
             
         <button *ngIf="logeando"  (click)="MoverBarraDeProgreso()" >Ingresar</button>
        
-       
         <div *ngIf="!logeando" class="progress">
             <div class="progress-bar progress-bar-info progress-bar-striped active" [class]="clase" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" [style.width]="ProgresoDeAncho" >
               {{progresoMensaje}} - {{progreso}}%
             </div>
         </div>
        
-        <input type="checkbox" checked="checked"> Recordar mis datos
+        <input name="recordar" type="checkbox" [(ngModel)]="recordar"> Recordar mis datos
       </div>
 
       <div class="container" style="background-color:#f1f1f1">

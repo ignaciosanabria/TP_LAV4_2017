@@ -10,12 +10,12 @@ export class JuegoServiceService {
 
     let miArray: Array<Juego> = new Array<Juego>();
 
-    miArray.push(new JuegoAdivina("leandro_12@hotmail.com", false));
-    miArray.push(new JuegoAdivina("administrador@outlook.com", true));
-    miArray.push(new JuegoAdivina("administrador@outlook.com", false));
-    miArray.push(new JuegoAdivina("administrador@outlook.com", false));
-    miArray.push(new JuegoAdivina("leandro_12@hotmail.com", false));
-    miArray.push(new JuegoAdivina("leandro_12@hotmail.com", false));
+    miArray.push(new JuegoAdivina("Adivina El Numero",false,"administrador@outlook.com"));
+    miArray.push(new JuegoAdivina("Agilidad Aritmetica", true,"administrador@outlook.com"));
+    miArray.push(new JuegoAdivina("Agilidad Aritmetica", true,"administrador@outlook.com"));
+    miArray.push(new JuegoAdivina("Piedra, Papel o Tijera", false,"leandro_12@hotmail.com"));
+    miArray.push(new JuegoAdivina("Agilidad Aritmetica", false,"leandro_12@hotmail.com"));
+    miArray.push(new JuegoAdivina("Anagrama", true,"leandro_12@hotmail.com"));
     return miArray;
   }
 

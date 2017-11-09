@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   miJuegoServicio : JuegoServiceService;
   usuarioJugador : any;
   usuarioEncontrado : boolean;
+  recordar : boolean;
 
   clase="progress-bar progress-bar-info progress-bar-striped ";
 
@@ -29,11 +30,26 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     servicioJuego:JuegoServiceService) {
+      this.logeando = true;
+      this.recordar = false;
       this.progreso=0;
       this.ProgresoDeAncho="0%";
       this.miJuegoServicio = servicioJuego;
       this.arrayUsuarios = JSON.parse(localStorage.getItem("Usuarios"));
+      this.usuarioJugador = JSON.parse(localStorage.getItem("usuarioEnLinea"));
       console.log(this.arrayUsuarios);
+      if(this.usuarioJugador != null)
+        {
+          if(this.usuarioJugador["recordar"] == true)
+            {
+              this.router.navigate(['/Principal']);
+            }
+           else
+            {
+              localStorage.removeItem("usuarioEnLinea");
+              this.usuarioJugador = null;
+            }
+        }
       if(this.arrayUsuarios == null)//Si no hay jugadores Nuevos, el array de Jugadores se reinicia con dos jugadores predeterminados
       {
       this.arrayUsuarios = new Array<any>();
@@ -74,6 +90,7 @@ export class LoginComponent implements OnInit {
       }
       if(this.usuarioEncontrado)
         {
+          this.usuarioJugador["recordar"] = this.recordar;
           localStorage.setItem("usuarioEnLinea",JSON.stringify(this.usuarioJugador));
           this.router.navigate(['/Principal']);
         }
@@ -83,6 +100,7 @@ export class LoginComponent implements OnInit {
             //location.reload();
             this.progreso=0;
             this.ProgresoDeAncho="0%";
+            this.logeando = true;
             this.usuario = null;
             this.clave = null;
           }

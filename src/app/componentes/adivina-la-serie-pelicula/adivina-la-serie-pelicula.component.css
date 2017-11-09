@@ -1,11 +1,27 @@
 form {
-    border: 10px solid #f1f1f1;
-    padding: 10px;
-    background-color: royalblue;
-    text-align: center;
+  background-color: royalblue;
+  text-align: center;
+  border: 2px solid wheat;
+  padding:0px;
+  margin: 0 auto;
+  background-position: center;
+
+}
+.estilosContainer{
+    background-color: lightblue;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    -webkit-background-size : cover;
+    -moz-background-size : cover;
+    -moz-background-size : cover;
+    background-size: cover;
+    margin:1;
+    padding:6%;
 }
 img{
     border-radius: 8px;
+    border : white 2px solid;
 }
 
 input [type="radio"]{
@@ -16,7 +32,7 @@ input [type="radio"]{
 }
 
 h1{
-    color: red;
+    color: black;
     text-underline-position: above;
 }
 
@@ -40,14 +56,24 @@ button:hover {
 }
 
 .Verificarbtn {
-    width: auto;
-    padding: 10px 50px;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 40px;
+    border: white 4px solid;
+    width: 50%;
     background-color: green;
 }
 .NuevoJuegobtn {
-    width: auto;
-    padding: 10px 50px;
-    background-color: #FF4136
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 40px;
+    border: white 4px solid;
+    width: 75%;
+    background-color: orange;
 }
 
 #snackbar {

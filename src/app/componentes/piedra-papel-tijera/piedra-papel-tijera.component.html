@@ -6,6 +6,7 @@
 <br><br>
 <div *ngIf="nuevoJuego.imagenesUsuario != null">
 <h2>Vos que opcion elegis?</h2>
+<h2><p [hidden]="ocultarSpinner" ><i class="fa fa-spinner fa-spin"></i>Verificando que eligio la maquina.</p></h2>
         <br><br>
         <button (click)="verificar('piedra')" class="btnOpciones" value="piedra" id="btn1"><img src="../../../assets/imagenes/PPT/{{nuevoJuego.imagenesUsuario[0]['path']}}" width="250px" height="250px"></button>
         <button (click)="verificar('papel')" class="btnOpciones" value="papel" id="btn2"><img src="../../../assets/imagenes/PPT/{{nuevoJuego.imagenesUsuario[1]['path']}}" width="250px" height="250px"></button>

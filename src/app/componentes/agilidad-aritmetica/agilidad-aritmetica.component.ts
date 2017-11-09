@@ -23,7 +23,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
   }
    constructor() {
      this.ocultarVerificar=true;
-     this.Tiempo=10; 
+     this.Tiempo=7; 
     this.nuevoJuego = new JuegoAgilidad("Agilidad Aritmetica",false,this.jugador["mail"]);
     this.arrayResultados = JSON.parse(localStorage.getItem("Resultados"));
     console.info("Inicio agilidad");  
@@ -39,7 +39,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
         clearInterval(this.repetidor);
         this.verificar();
         this.ocultarVerificar=true;
-        this.Tiempo=10;
+        this.Tiempo=7;
       }
       }, 900);
 
@@ -63,7 +63,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
       // this.nuevoJuego.resultadoJugador = null;
       // this.nuevoJuego.resultadoVerdadero = null;
       this.ocultarVerificar = true;
-      this.Tiempo = 10;
+      this.Tiempo = 7;
       this.arrayResultados.push(this.nuevoJuego);
       localStorage.setItem("Resultados",JSON.stringify(this.arrayResultados));
       this.enviarJuego.emit(this.nuevoJuego);

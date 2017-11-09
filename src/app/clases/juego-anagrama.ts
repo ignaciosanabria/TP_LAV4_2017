@@ -21,8 +21,8 @@ export class JuegoAnagrama extends Juego
     "correcta" : "TREN"
    },
    {
-    "palabra": ["BUFÓLT","LÓTFBU","UBÓFLT"],
-    "correcta" : "FUTBÓL"
+    "palabra": ["BÚFOLT","LOTFBÚ","ÚBOFLT"],
+    "correcta" : "FÚTBOL"
    },
    {
     "palabra": ["TENMA","ATMEN","ENTAM"],
