@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Juego } from '../clases/juego';
 import { JuegoAdivina } from '../clases/juego-adivina';
+import { JuegoAgilidad } from '../clases/juego-agilidad';
+import { JuegoAnagrama} from '../clases/juego-anagrama';
 @Injectable()
 export class JuegoServiceService {
 
@@ -11,11 +13,13 @@ export class JuegoServiceService {
     let miArray: Array<Juego> = new Array<Juego>();
 
     miArray.push(new JuegoAdivina("Adivina El Numero",false,"administrador@outlook.com"));
-    miArray.push(new JuegoAdivina("Agilidad Aritmetica", true,"administrador@outlook.com"));
-    miArray.push(new JuegoAdivina("Agilidad Aritmetica", true,"administrador@outlook.com"));
-    miArray.push(new JuegoAdivina("Piedra, Papel o Tijera", false,"leandro_12@hotmail.com"));
+    miArray.push(new JuegoAgilidad("Agilidad Aritmetica", true,"administrador@outlook.com"));
+    miArray.push(new JuegoAgilidad("Agilidad Aritmetica", true,"administrador@outlook.com"));
+    miArray.push(new JuegoAnagrama("Anagrama", false,"leandro_12@hotmail.com"));
     miArray.push(new JuegoAdivina("Agilidad Aritmetica", false,"leandro_12@hotmail.com"));
-    miArray.push(new JuegoAdivina("Anagrama", true,"leandro_12@hotmail.com"));
+    miArray.push(new JuegoAnagrama("Anagrama", true,"leandro_12@hotmail.com"));
+    miArray.push(new JuegoAnagrama("Anagrama",false,"administrador@outlook.com"));
+    miArray.push(new JuegoAdivina("Adivina El Numero",true,"administrador@outlook.com"));
     return miArray;
   }
 

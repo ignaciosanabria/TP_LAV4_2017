@@ -60,6 +60,15 @@ export class LoginComponent implements OnInit {
       if(usuarioRegistrado != null) //Si un usuario se registra este se almacena en el LocalStorage y luego se lo agrega al arraydeUsuarios
         {
           this.arrayUsuarios.push(usuarioRegistrado);
+          if(this.arrayUsuarios.includes(usuarioRegistrado))
+            {
+              console.log("El usuario registrado esta en el array");
+            }
+          else
+            {
+             console.log("Agregue el ultimo usuario registrado");
+             this.arrayUsuarios.push("usuarioRegistrado")
+            }
         }
         let resultadosPrevios = JSON.parse(localStorage.getItem("Resultados"));
         console.log(resultadosPrevios);
