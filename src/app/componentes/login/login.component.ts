@@ -114,6 +114,12 @@ export class LoginComponent implements OnInit {
             this.clave = null;
           }
   }
+
+  CargarAdministrador()
+  {
+    this.usuario = "administrador@outlook.com";
+    this.clave = "1234";
+  }
   MoverBarraDeProgreso() {
     
     this.logeando=false;
