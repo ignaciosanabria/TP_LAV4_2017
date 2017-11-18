@@ -1,4 +1,4 @@
-<table border="1">
+<!-- <table border="1">
     <thead>
         <th>Usuario</th>
         <th>Email</th>
@@ -11,11 +11,22 @@
             <tr>
            <td>{{jugador.usuario}}</td>
            <td>{{jugador.email}}</td>
-           <td>{{jugador.sexo | sexo}}</td>
+           <td>{{jugador.sexo | sexo}}</td> -->
            <!-- <td *ngIf="jugador.puntaje | puntos == mal" style="color: red">{{jugador.puntaje}}</td> -->
-           <td>{{jugador.gano | gano}}</td>
+           <!-- <td>{{jugador.gano | gano}}</td>
             </tr>
         </ng-container>
     </tbody>
 </table>
-<button (click) = "mostrarJugadores()">Mostrar Jugadores</button>
+<button (click) = "mostrarJugadores()">Mostrar Jugadores</button> -->
+<!-- Aca arranca el Ng2 Smart Table -->
+<!-- <button class="btn btn-success" (click)="traer('gano')">Traer Ganadores</button>
+<button class="btn btn-danger" (click)="traer('perdio')">Traer Perdedores</button>
+<button class="btn btn-info" (click)="traer('todos')">Traer Todos</button>
+<input #search class="search" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)"> -->
+<!--Asigno manejador al evento "crear" al querer agregar una nueva fila-->
+<ng2-smart-table class="estilosSmartTable" 
+(createConfirm)="onCreateConfirm($event)" 
+(deleteConfirm)="onDeleteConfirm($event)"
+(editConfirm)="onEditConfirm($event)"
+[settings]="settings" [source]="source"></ng2-smart-table>

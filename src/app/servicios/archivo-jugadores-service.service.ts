@@ -14,8 +14,8 @@ export class ArchivoJugadoresServiceService {
    {
     return this.miHttpServicio.httpGetPromise(ruta).then(datos => {return datos;}).catch(error => {console.info(error)});
    }
+    
 
-  
 
 
 

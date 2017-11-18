@@ -22,6 +22,7 @@ import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 import { ListadoJugadoresComponent } from '../componentes/listado-jugadores/listado-jugadores.component';
 import { PiedraPapelTijeraComponent } from '../componentes/piedra-papel-tijera/piedra-papel-tijera.component';
 import { AdivinaLaSeriePeliculaComponent } from '../componentes/adivina-la-serie-pelicula/adivina-la-serie-pelicula.component';
+import { EjemploDirectivasComponent } from '../componentes/ejemplo-directivas/ejemplo-directivas.component';
 // declaro donde quiero que se dirija
 const MiRuteo = [
 //{path: '' , component: PrincipalComponent},
@@ -31,6 +32,7 @@ const MiRuteo = [
 {path: 'Principal' , component: PrincipalComponent},
 {path: 'Listado' , component: ListadoComponent},
 {path: 'Listados', component : ListadosComponent},
+{path: 'EjemploDirectivas', component : EjemploDirectivasComponent},
 { path: 'Juegos' ,
 component: JuegosComponent ,
 children:

@@ -52,6 +52,12 @@ import { GanoPipe } from './pipes/gano.pipe';
 import { PuntosPipe } from './pipes/puntos.pipe';
 import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
 import { AdivinaLaSeriePeliculaComponent } from './componentes/adivina-la-serie-pelicula/adivina-la-serie-pelicula.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { EjemploDirectivasComponent } from './componentes/ejemplo-directivas/ejemplo-directivas.component';
+import { ResaltarDirective } from './directivas/resaltar.directive';
+import { ResaltarDosDirective } from './directivas/resaltar-dos.directive';
+import { ResaltarTresDirective } from './directivas/resaltar-tres.directive';
+import { ResaltarCuatroDirective } from './directivas/resaltar-cuatro.directive';
 
 @NgModule({
   declarations: [
@@ -79,14 +85,20 @@ import { AdivinaLaSeriePeliculaComponent } from './componentes/adivina-la-serie-
     GanoPipe,
     PuntosPipe,
     PiedraPapelTijeraComponent,
-    AdivinaLaSeriePeliculaComponent
+    AdivinaLaSeriePeliculaComponent,
+    EjemploDirectivasComponent,
+    ResaltarDirective,
+    ResaltarDosDirective,
+    ResaltarTresDirective,
+    ResaltarCuatroDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RuteandoModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    Ng2SmartTableModule
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)

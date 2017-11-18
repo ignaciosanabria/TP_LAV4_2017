@@ -11,7 +11,10 @@ export class JugadoresService {
 
    public TraerJugadores()
    {
-    return this.miServicio.TraerJugadores("jugadores/").then(data => {return data;}).catch(error => {console.info(error);})
+    return this.miServicio.TraerJugadores("cd/").then(data => {return data;}).catch(error => {console.info(error);})
    }
+
+
+
 
 }
